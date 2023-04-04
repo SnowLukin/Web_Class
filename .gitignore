@@ -1,0 +1,5 @@
+# Ignore user-specific files
+xcuserdata/
+*.xcuserstate
+*.DS_Store
+*.idea

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="labs.css">
+    <script src="labs.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game.css">
+    <!-- Google Font Link for Icons -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+<body>
+
+<!-- Title -->
+<div class="title-div">
+    <p class="title-p">JS tasks. V-24</p>
+</div>
+
+<!-- SECTION 1 -->
+<div class="top-div" onclick="setDate(); toggleSection('listDiv');">
+    <p class="top-div-content">TASK 1</p>
+</div>
+<!-- TASK 1 -->
+<div class="listDiv" style="display:none">
+    <p id="data_label" class="content-p"></p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="top-div" onclick="setCalendar(), toggleSection('calendar');">
+    <p class="top-div-content">TASK 2</p>
+</div>
+<!-- TASK 2 -->
+<div class="calendar" style="display: none">
+    <div class="wrapper">
+        <header>
+            <p class="current-date"></p>
+            <div class="icons">
+                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                <span id="next" class="material-symbols-rounded">chevron_right</span>
+            </div>
+        </header>
+        <div class="calendar">
+            <ul class="weeks">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+            </ul>
+            <ul class="days"></ul>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="top-div" onclick="task3('task3-content'); toggleSection('task3');">
+    <p class="top-div-content">TASK 3</p>
+</div>
+<!-- TASK 3 -->
+<div class="task3" style="display:none">
+    <p id="task3-content" class="content-p"></p>
+</div>
+
+<!-- SECTION 4 -->
+<div class="top-div" onclick="task4('task4-block'); toggleSection('task4');">
+    <p class="top-div-content">TASK 4</p>
+</div>
+<!-- TASK 4 -->
+<div class="task4" style="display:none">
+    <div id="task4-block">Click me!</div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="top-div" onclick="toggleSection('task5');">
+    <p class="top-div-content">TASK 5</p>
+</div>
+<!-- TASK 5 -->
+<div class="task5" style="display:none">
+    <div class="drop-section">
+        <button id="addElement" class="add-list-element" onclick="task5('task5-list')">Add element</button>
+        <ul id="task5-list"></ul>
+    </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="top-div" onclick="task6('myTable'); toggleSection('task6');">
+    <p class="top-div-content">TASK 6</p>
+</div>
+<!-- TASK 6 -->
+<div class="task6" style="display:none">
+    <div class="drop-section">
+        <table id='myTable' class="class-table"></table>
+    </div>
+</div>
+
+<!-- SECTION 7 -->
+<div class="top-div" onclick="task7(); toggleSection('task7');">
+    <p class="top-div-content">TASK 7</p>
+</div>
+<!-- TASK 7 -->
+<div class="task7" style="display:none">
+    <div class="drop-section">
+        <ul id="menu">
+
+        </ul>
+    </div>
+</div>
+
+<!-- SECTION 8 -->
+<div class="top-div" onclick="task8(); toggleSection('task8');">
+    <p class="top-div-content">TASK 8</p>
+</div>
+<!-- TASK 8 -->
+<div class="task8" style="display:none">
+    <div class="drop-section">
+        <div id="image-container">
+            <img id="smooth-image" src="img_ss.png" alt="Your image"
+                 style="position: absolute; z-index: 1; width: 100%; height: 100%;">
+            <p style="font-size: 32px; color: red">AAAAAAAAAAAAAAA</p>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 9 -->
+<div class="top-div" onclick="toggleSection('task9');">
+    <p class="top-div-content">TASK 9</p>
+</div>
+<!-- TASK 9 -->
+<div class="task9" style="display:none">
+    <div class="drop-section">
+        <form id="registration-form" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="task9-email" name="email" required>
+            <br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="task9-password" name="password" required>
+            <br><br>
+            <input class="add-list-element" type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+<!-- SECTION 10 -->
+<div class="top-div" onclick="toggleSection('task10');">
+    <p class="top-div-content">TASK 10</p>
+</div>
+<!-- TASK 10 -->
+<div class="task10" style="display:none">
+    <div class="drop-section">
+        <form id="task10-form" method="post">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" oninput="validateEmail()">
+            <label id="emailError" style="color:red"></label>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" oninput="validatePasswords()">
+            <br>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" name="confirm-password" id="confirm-password" oninput="validatePasswords()">
+            <label id="passwordError" style="color:red"></label>
+            <br>
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" oninput="validatePhone()">
+            <label id="phoneError" style="color:red"></label>
+            <br>
+            <label for="date">Date:</label>
+            <input type="text" name="date" id="date" oninput="validateDate()">
+            <label id="dateError" style="color:red"></label>
+            <br>
+            <label for="full-name">Full Name (Optional):</label>
+            <input type="text" name="full-name" id="full-name">
+            <br>
+            <label for="faculty">Faculty (Optional):</label>
+            <input type="text" name="faculty" id="faculty">
+            <br>
+            <label for="department">Department (Optional):</label>
+            <input type="text" name="department" id="department">
+            <br><br>
+            <p>Best programming languages (Optional):</p>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> Swift</label>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> Swift</label>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> Swift</label>
+            <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> Swift</label>
+            <br><br><br>
+            <button id="task10-submit-button" class="add-list-element" type="submit" disabled>Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- SECTION 11 -->
+<div class="top-div" onclick="toggleSection('task11');">
+    <p class="top-div-content">TASK 11</p>
+</div>
+<!-- TASK 11 -->
+<div class="task11" style="display:none">
+    <div class="drop-section">
+        <canvas id="game-board" width="400" height="400"></canvas>
+    </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
