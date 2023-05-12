@@ -151,42 +151,45 @@
 <!-- TASK 10 -->
 <div class="task10" style="display:none">
     <div class="drop-section">
-        <form id="task10-form" method="post">
-            <label for="email">Email:</label>
-            <input type="text" name="email" id="email" oninput="validateEmail()">
-            <label id="emailError" style="color:red"></label>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" oninput="validatePasswords()">
-            <br>
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" name="confirm-password" id="confirm-password" oninput="validatePasswords()">
-            <label id="passwordError" style="color:red"></label>
-            <br>
-            <label for="phone">Phone:</label>
-            <input type="text" name="phone" id="phone" oninput="validatePhone()">
-            <label id="phoneError" style="color:red"></label>
-            <br>
-            <label for="date">Date:</label>
-            <input type="text" name="date" id="date" oninput="validateDate()">
-            <label id="dateError" style="color:red"></label>
-            <br>
-            <label for="full-name">Full Name (Optional):</label>
-            <input type="text" name="full-name" id="full-name">
-            <br>
-            <label for="faculty">Faculty (Optional):</label>
-            <input type="text" name="faculty" id="faculty">
-            <br>
-            <label for="department">Department (Optional):</label>
-            <input type="text" name="department" id="department">
+        <form id="task10-form" method="post" onsubmit="return finalValidation()">
             <br><br>
-            <p>Best programming languages (Optional):</p>
+            <label for="txtEmail">Email:</label>
+            <input type="text" name="email" id="txtEmail" onblur="validateEmail()">
+            <label id="lblEmailError" style="color:red"></label>
+            <br><br>
+            <label for="txtPhone">Phone:</label>
+            <input type="text" name="phone" id="txtPhone" onblur="validatePhone()">
+            <label id="lblPhoneError" style="color:red"></label>
+            <br><br>
+            <label for="txtDate">Date:</label>
+            <input type="text" name="date" id="txtDate" onblur="validateDate()">
+            <label id="lblDateError" style="color:red"></label>
+            <br><br>
+            <label for="txtPassword">Password:</label>
+            <input type="password" name="password" id="txtPassword" onblur="validatePassword()">
+            <label id="lblPasswordError" style="color:red"></label>
+            <br><br>
+            <label for="txtPasswordConfirm">Confirm password:</label>
+            <input type="password" name="passwordConfirm" id="txtPasswordConfirm" onblur="validatePassword()">
+            <label id="lblPasswordConfirmError" style="color:red"></label>
+            <br><br>
+            <label for="full-name">Name:</label>
+            <input type="text" name="full-name" id="full-name">
+            <br><br>
+            <label for="faculty">Faculty:</label>
+            <input type="text" name="faculty" id="faculty">
+            <br><br>
+            <label for="department">Department:</label>
+            <input type="text" name="department" id="department" placeholder="Department:">
+            <br><br>
+            <p>Best programming languages:</p>
             <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> Swift</label>
             <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> Swift</label>
             <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> Swift</label>
             <label class="framework"><input type="checkbox" name="frameworks" value="Swift"> Swift</label>
             <br><br><br>
-            <button id="task10-submit-button" class="add-list-element" type="submit" disabled>Submit</button>
+            <button type="submit" class="add-list-element" value="Submit" id="submitBtn" disabled>Submit</button>
+            <br>
         </form>
     </div>
 </div>

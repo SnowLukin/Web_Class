@@ -1,0 +1,141 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  /*box-sizing: border-box;*/
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-size: 16px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+}
+
+.text-r {
+  text-align: right;
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  margin-left: 20px;
+  /*text-decoration: none;*/
+  background-color: white;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  border-color: black;
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.row {
+  display: flex;
+  /*justify-content: space-between;*/
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  align-content: center;
+}
+
+.card {
+  padding: 0 20px;
+  background-color: #fff;
+}
+
+.button {
+  padding: 15px 30px;
+  border: 2px solid #000;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  margin-top: 20px;
+  display: block;
+}
+
+.button-w {
+  color: #fff;
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  margin-top: 20px;
+  display: block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: space-between;*/
+  padding: 0 200px;
+}
+form label {
+  margin-bottom: 20px;
+}
+form label input {
+  width: 100%;
+  padding: 20px 0 20px 10px;
+}
+
+section {
+  padding: 20px 0;
+}
+section .container {
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
+/*@media (max-width: 1199px) {*/
+/*  .container {*/
+/*    width: auto;*/
+/*  }*/
+/*  .row {*/
+/*    flex-direction: column !important;*/
+/*    margin-bottom: 80px;*/
+/*    justify-content: center;*/
+/*    align-content: space-evenly;*/
+/*  }*/
+/*  .col {*/
+/*    margin-bottom: 80px;*/
+/*    text-align: center;*/
+/*  }*/
+/*  img {*/
+/*    margin: 15px auto;*/
+/*  }*/
+/*  form {*/
+/*    padding: 0 100px;*/
+/*  }*/
+/*  form label {*/
+/*    margin: 30px 0;*/
+/*  }*/
+/*}*/
+
+/*# sourceMappingURL=images.css.map */

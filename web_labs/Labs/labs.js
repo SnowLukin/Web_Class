@@ -185,7 +185,7 @@ function task7() {
             setTimeout(() => {
                 menu.removeChild(menuItem);
                 itemsLeft--;
-                if (itemsLeft === 0) {
+                if (menuItems.length === 0) {
                     message.style.display = "block";
                 } else {
                     message.style.display = "none";
@@ -240,100 +240,76 @@ form.addEventListener('submit', function(event) {
 });
 
 function validateEmail() {
-    var email = document.getElementById("email");
+    var email = document.getElementById("txtEmail").value;
     var emailPattern = /^\w{2,}@\w{2,}\.\w{2,4}$/;
-
-    if (!emailPattern.test(email.value)) {
-        document.getElementById("emailError").innerHTML = "Enter a valid email address (example@ex.com)";
-        email.classList.add("error");
+    if (!emailPattern.test(email)) {
+        document.getElementById("lblEmailError").innerHTML = "Enter a valid email address.";
     } else {
-        document.getElementById("emailError").innerHTML = "";
-        email.classList.remove("error");
+        document.getElementById("lblEmailError").innerHTML = "";
     }
-
-    const submitBtn = document.getElementById("task10-submit-button");
-    submitBtn.disabled = validateSubmit()
-}
-
-
-function validatePasswords() {
-    var password = document.getElementById("password");
-    var confirmPassword = document.getElementById("confirm-password");
-
-    if (password.value !== confirmPassword.value) {
-        document.getElementById("passwordError").innerHTML = "Passwords do not match";
-        password.classList.add("error");
-        confirmPassword.classList.add("error");
-    } else {
-        document.getElementById("passwordError").innerHTML = "";
-        password.classList.remove("error");
-        confirmPassword.classList.remove("error");
-    }
-
-    const submitBtn = document.getElementById("task10-submit-button");
-    submitBtn.disabled = validateSubmit()
+    toggleSubmitButton();
 }
 
 function validatePhone() {
-    var phone = document.getElementById("phone");
+    var phone = document.getElementById("txtPhone").value;
     var phonePattern = /^\+[0-9]{11}$/;
-
-    if (!phonePattern.test(phone.value)) {
-        document.getElementById("phoneError").innerHTML = "Enter a valid phone number (+71234567890)";
-        phone.classList.add("error");
+    if (!phonePattern.test(phone)) {
+        document.getElementById("lblPhoneError").innerHTML = "Enter a valid phone number.";
     } else {
-        document.getElementById("phoneError").innerHTML = "";
-        phone.classList.remove("error");
+        document.getElementById("lblPhoneError").innerHTML = "";
     }
-
-    const submitBtn = document.getElementById("task10-submit-button");
-    submitBtn.disabled = validateSubmit()
+    toggleSubmitButton();
 }
 
 function validateDate() {
-    var date = document.getElementById("date");
+    var date = document.getElementById("txtDate").value;
     var datePattern = /^\d{2}[.]\d{2}[.]\d{4}$/;
-
-    if (!datePattern.test(date.value)) {
-        document.getElementById("dateError").innerHTML = "Enter a valid date (dd.mm.yyyy)";
-        date.classList.add("error");
+    if (!datePattern.test(date)) {
+        document.getElementById("lblDateError").innerHTML = "Enter a valid date (dd.mm.yyyy).";
     } else {
-        document.getElementById("dateError").innerHTML = "";
-        date.classList.remove("error");
+        document.getElementById("lblDateError").innerHTML = "";
     }
-
-    const submitBtn = document.getElementById("task10-submit-button");
-    submitBtn.disabled = validateSubmit()
+    toggleSubmitButton();
 }
 
-function validateSubmit() {
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirm-password");
-    const phone = document.getElementById("phone");
-    const date = document.getElementById("date");
-    const email = document.getElementById("email");
+function validatePassword() {
+    var password = document.getElementById("txtPassword").value;
+    var passwordConfirm = document.getElementById("txtPasswordConfirm").value;
 
-    const name = document.getElementById("full-name");
-    const faculty = document.getElementById("faculty");
-    const department = document.getElementById("department");
-
-    const phonePattern = /^\+[0-9]{11}$/;
-    const datePattern = /^\d{2}[.]\d{2}[.]\d{4}$/;
-    const emailPattern = /^\w{2,}@\w{2,}\.\w{2,4}$/;
-
-    const passwordCond = password.value === confirmPassword.value
-    const phoneCond = phonePattern.test(phone.value)
-    const dataCond = datePattern.test(date.value)
-    const emailCond = emailPattern.test(email.value)
-
-    // const nameCond = !isBlank(name.textContent)
-    // const facultyCond = !isBlank(faculty.textContent)
-    // const departmentCond = !isBlank(department.textContent)
-
-        // && nameCond && facultyCond && departmentCond
-    return !(passwordCond && phoneCond && dataCond && emailCond)
+    if (password !== passwordConfirm) {
+        document.getElementById("lblPasswordError").innerHTML = "Passwords do not match.";
+        document.getElementById("lblPasswordConfirmError").innerHTML = "Passwords do not match.";
+    } else {
+        document.getElementById("lblPasswordError").innerHTML = "";
+        document.getElementById("lblPasswordConfirmError").innerHTML = "";
+    }
+    toggleSubmitButton();
 }
 
-function isBlank(str) {
-    return (!str || /^\s*$/.test(str));
+function toggleSubmitButton() {
+    var emailError = document.getElementById("lblEmailError").innerHTML;
+    var phoneError = document.getElementById("lblPhoneError").innerHTML;
+    var dateError = document.getElementById("lblDateError").innerHTML;
+    var passwordError = document.getElementById("lblPasswordError").innerHTML;
+    var passwordConfirmError = document.getElementById("lblPasswordConfirmError").innerHTML;
+    var submitBtn = document.getElementById("submitBtn");
+    if (emailError === "" && phoneError === "" && dateError === "" && passwordError === "" && passwordConfirmError === "") {
+        submitBtn.disabled = false;
+    } else {
+        submitBtn.disabled = true;
+    }
+}
+
+function finalValidation() {
+    validateEmail();
+    validatePhone();
+    validateDate();
+    validatePassword();
+
+    var submitBtn = document.getElementById("submitBtn");
+    if (submitBtn.disabled) {
+        return false;
+    } else {
+        return true;
+    }
 }
