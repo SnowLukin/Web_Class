@@ -29,7 +29,7 @@ if (isset($_POST['Submit'])) {
     $_SESSION['attempt_count']++;
     $_SESSION['last_attempt_time'] = time();
 
-    if ($_SESSION['attempt_count'] >= 3) {
+    if ($_SESSION['attempt_count'] > 3) {
         header("Location: index.php?error=2");
         exit;
     }
